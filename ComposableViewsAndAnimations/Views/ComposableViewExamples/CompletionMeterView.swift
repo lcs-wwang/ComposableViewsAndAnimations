@@ -25,7 +25,7 @@ struct CompletionMeterView: View {
     //       In the implicit animation examples given earlier, the USER
     //       initiated state changes by, for example, clicking on the red circle.
     //
-    // Update the animation on this interval (every 0.03 seconds)
+    // Set timer so that completion amount changes on a regular basis
     let timer = Timer.publish(every: 0.03, on: .main, in: .common).autoconnect()
     
     var body: some View {
@@ -61,7 +61,7 @@ struct CompletionMeterView: View {
             
             Text("\(String(format: "%3.0f", (completionAmount) * 100.0))%")
                 .font(Font.custom("Courier-Bold", size: 24.0))
-                .animation(.linear(duration: 0.03))
+                .animation(.default)
 
         }
     }
