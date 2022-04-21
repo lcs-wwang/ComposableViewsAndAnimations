@@ -21,6 +21,10 @@ struct CompletionMeterView: View {
     // Whether to apply the animation
     @State private var useAnimation = false
     
+    // NOTE: Here, we use a timer to initiate the state changes.
+    //       In the implicit animation examples given earlier, the USER
+    //       initiated state changes by, for example, clicking on the red circle.
+    //
     // Update the animation on this interval (every 0.03 seconds)
     // The full animation will always take 3 seconds
     let timer = Timer.publish(every: 0.03, on: .main, in: .common).autoconnect()
@@ -37,6 +41,7 @@ struct CompletionMeterView: View {
                 .stroke(Color.red, lineWidth: 20)
                 .frame(width: 200, height: 200)
                 .rotationEffect(.degrees(-90))
+                // When the timer fires, the code in this block will run.
                 .onReceive(timer) { _ in
                     
                     // Stop when completion amount reaches the fill to value
