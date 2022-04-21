@@ -13,19 +13,24 @@ struct EncouragementView: View {
     // MARK: Stored properties
     
     // What to say?
-    var message: String
+    let message: String
     
     // Scale factor for the entire image
     @State private var scaleFactor: CGFloat = 1.0
     
     // Opacity of each part of the view
+    // Note that each property begins with an opacity of zero
     @State private var opacityOuter = 0.0
     @State private var opacityMiddle = 0.0
     @State private var opacityCentre = 0.0
     @State private var opacityText = 0.0
     
-    // Initialize a timer that will fire in one second
-    let timer = Timer.publish(every: 1, on: .main, in: .common).autoconnect()
+    // NOTE: Here, we use a timer to initiate the state changes.
+    //       In the implicit animation examples given earlier, the USER
+    //       initiated state changes by, for example, clicking on the red circle.
+    //
+    // In half a second, make the timer fire, so the four properties above get their state changed.
+    let timer = Timer.publish(every: 0.25, on: .main, in: .common).autoconnect()
     
     var body: some View {
         
@@ -49,19 +54,19 @@ struct EncouragementView: View {
             .scaleEffect(scaleFactor)   // Applies only to views above
             .onReceive(timer) { input in
                 
-                withAnimation(Animation.easeIn(duration: 0.5).delay(0.5)) {
+                withAnimation(Animation.easeIn(duration: 0.5).delay(0.0)) {
                     opacityOuter = 1.0
                 }
-                withAnimation(Animation.easeIn(duration: 0.5).delay(1.0)) {
+                withAnimation(Animation.easeIn(duration: 0.5).delay(0.25)) {
                     opacityMiddle = 1.0
                 }
-                withAnimation(Animation.easeIn(duration: 0.5).delay(1.5)) {
+                withAnimation(Animation.easeIn(duration: 0.5).delay(0.5)) {
                     opacityCentre = 1.0
                 }
-                withAnimation(Animation.easeIn(duration: 0.5).delay(2.0)) {
+                withAnimation(Animation.easeIn(duration: 0.5).delay(0.75)) {
                     opacityText = 1.0
                 }
-                withAnimation(Animation.interpolatingSpring(mass: 0.75, stiffness: 0.9, damping: 0.75, initialVelocity: 8).delay(2.5)) {
+                withAnimation(Animation.interpolatingSpring(mass: 0.75, stiffness: 0.9, damping: 0.75, initialVelocity: 8).delay(1.0)) {
                     scaleFactor = 1.25
                 }
                 
