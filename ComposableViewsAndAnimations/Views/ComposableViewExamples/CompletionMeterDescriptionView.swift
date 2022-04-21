@@ -33,6 +33,7 @@ struct CompletionMeterDescriptionView: View {
 
                         Then navigate to the view to see the progress meter.
                         """)
+                    .minimumScaleFactor(0.5)
                     
                     Slider(value: $percentComplete, in: 0...100, step: 1.0) {
                         Text("Completion amount")
