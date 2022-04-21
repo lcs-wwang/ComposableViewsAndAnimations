@@ -120,7 +120,7 @@ struct TimingView: View {
             
             Spacer()
             Picker(selection: $selectedAnimationIndex, label: EmptyView(), content: {
-                ForEach(0..<animations.count) {
+                ForEach(0..<9) {
                     Text(animations[$0].0)
                 }
             })
