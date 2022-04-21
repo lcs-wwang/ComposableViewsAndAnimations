@@ -32,7 +32,7 @@ struct ExplicitAnimationsView: View {
                             .padding(.top)
                         
                         Text("""
-                            In this animation, we explicitly identify what state changes should be animated. Notice how the change in font is no longer animated, but the position (offset) of the text is.
+                            In this animation, we explicitly identify when a state change should be animated. Notice how when the type face changes, the change in the bounding box is no longer animated, but the position (offset) of the text is.
 
                             This also illustrates a different animation type (interpolating spring) which means the view will bounce back and forth a few times before reaching it's final position.
                             """)
