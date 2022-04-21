@@ -124,6 +124,7 @@ struct TimingView: View {
                     Text(animations[$0].0)
                 }
             })
+            .pickerStyle(.wheel)
             
             Button(action: {
                 self.animating = false
