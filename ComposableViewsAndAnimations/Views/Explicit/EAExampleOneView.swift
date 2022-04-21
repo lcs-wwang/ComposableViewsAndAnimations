@@ -49,7 +49,7 @@ struct EAExampleOneView: View {
                     .offset(x: 0, y: offset)
                     .onTapGesture {
 
-                        // Move the text down
+                        // Move the text down by whatever the value of "offset" is
                         // This state change will be animated
                         withAnimation(.interpolatingSpring(mass: 1.0, stiffness: 1.0, damping: 0.75, initialVelocity: 10)) {
                             offset += 50
