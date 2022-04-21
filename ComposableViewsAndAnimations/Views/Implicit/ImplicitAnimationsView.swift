@@ -59,7 +59,7 @@ struct ImplicitAnimationsView: View {
                         Text("""
                             The key thing to understand with implicit animations is that all state changes that impact the view are animated.
 
-                            In this example, the button still changes size when it is pressed. However, when it gets very small, and expands again, the hue changes to a new random value. Try it out. Then try uncommenting the .animation view modifier on line 54 of **IAExampleTwoView.swift**. Note how both state changes are animated when the button grows again.
+                            In this example, the button still changes size when it is pressed. However, when it gets very small, and expands again, the hue changes to a new random value. Try it out. Then try uncommenting the **.animation** view modifier on line 54 of **IAExampleTwoView.swift**. Note how both state changes are animated when the button grows again.
 
                             This example also demonstrates that the length of the animation can be controlled, too. Notice the animation type has been changed from **.default** to **.linear** with a duration of 2.5 seconds.
 
