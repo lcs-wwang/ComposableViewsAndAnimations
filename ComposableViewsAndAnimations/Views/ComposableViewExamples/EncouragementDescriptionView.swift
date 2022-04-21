@@ -15,36 +15,33 @@ struct EncouragementDescriptionView: View {
     // MARK: Computed properties
     var body: some View {
         
-        List {
+        VStack(alignment: .leading) {
             
-            VStack(alignment: .leading) {
+            Group {
                 
-                Group {
-                    
-                    Text("Description")
-                        .font(.title2)
-                        .bold()
-                        .padding(.top)
-                    
-                    Text("""
+                Text("Description")
+                    .font(.title2)
+                    .bold()
+                
+                Text("""
                         Many games or apps include reactions to how a player is faring.
-
+                        
                         This is an example of a fun animation to encourage a user.
-
+                        
                         Type a short phrase, like "Wow!" or "Super!" and try it out.
                         """)
-                    .minimumScaleFactor(0.5)
-                    
-                    TextField("Enter some encouragement", text: $phrase)
-                    
-                }
-                .padding(.bottom)
+                .minimumScaleFactor(0.5)
+                
+                TextField("Enter some encouragement", text: $phrase)
                 
             }
+            .padding(.bottom)
             
-            NavigationLink(destination: EncouragementView(message: phrase)) {
-                SimpleListItemView(title: "Encouragement",
-                                   caption: "The animation will say: \(phrase)")
+            List {
+                NavigationLink(destination: EncouragementView(message: phrase)) {
+                    SimpleListItemView(title: "Encouragement",
+                                       caption: "The animation will say: \(phrase)")
+                }
             }
             
         }

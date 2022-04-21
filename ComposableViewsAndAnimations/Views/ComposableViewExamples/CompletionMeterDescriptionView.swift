@@ -15,40 +15,38 @@ struct CompletionMeterDescriptionView: View {
     // MARK: Computed properties
     var body: some View {
         
-        List {
+        VStack(alignment: .leading) {
             
-            VStack(alignment: .leading) {
+            Group {
                 
-                Group {
-                    
-                    Text("Description")
-                        .font(.title2)
-                        .bold()
-                        .padding(.top)
-                    
-                    Text("""
-                        This view could be used within an app to show how far someone has progressed through a tutorial, or their score after completing a quiz.
+                Text("Description")
+                    .font(.title2)
+                    .bold()
+                    .padding(.top)
+                
+                Text("""
+                    This view could be used within an app to show how far someone has progressed through a tutorial, or their score after completing a quiz.
 
-                        Select a value below using the slider.
+                    Select a value below using the slider.
 
-                        Then navigate to the view to see the progress meter.
-                        """)
-                    .minimumScaleFactor(0.5)
-                    
-                    Slider(value: $percentComplete, in: 0...100, step: 1.0) {
-                        Text("Completion amount")
-                    }
-                                        
+                    Then navigate to the view to see the progress meter.
+                    """)
+                .minimumScaleFactor(0.5)
+                
+                Slider(value: $percentComplete, in: 0...100, step: 1.0) {
+                    Text("Completion amount")
                 }
-                .padding(.bottom)
+                                    
+            }
+            .padding(.bottom)
+            
+            List {
+                NavigationLink(destination: CompletionMeterView(fillToValue: percentComplete)) {
+                    SimpleListItemView(title: "Completion Meter",
+                                       caption: "Will illustrate fill to \(String(format: "%.0f", percentComplete))%")
+                }
+            }
 
-            }
-            
-            NavigationLink(destination: CompletionMeterView(fillToValue: percentComplete)) {
-                SimpleListItemView(title: "Completion Meter",
-                                   caption: "Will illustrate fill to \(String(format: "%.0f", percentComplete))%")
-            }
-            
         }
         .padding()
         .navigationTitle("Completion Meter")

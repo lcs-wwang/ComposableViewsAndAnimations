@@ -15,33 +15,31 @@ struct CustomComposableDescriptionView: View {
     // MARK: Computed properties
     var body: some View {
         
-        List {
+        VStack(alignment: .leading) {
             
-            VStack(alignment: .leading) {
+            Group {
                 
-                Group {
-                    
-                    Text("Description")
-                        .font(.title2)
-                        .bold()
-                        .padding(.top)
-                    
-                    Text("""
-                        Replace this with a description of how to use this view.
+                Text("Description")
+                    .font(.title2)
+                    .bold()
+                    .padding(.top)
+                
+                Text("""
+                    Replace this with a description of how to use this view.
 
-                        If the view accepts a parameter, provide a control to enter the input below.
-                        """)
-                    
-                    TextField("Enter an input value", text: $phrase)
-                    
-                }
-                .padding(.bottom)
+                    If the view accepts a parameter, provide a control to enter the input below.
+                    """)
+                
+                TextField("Enter an input value", text: $phrase)
                 
             }
+            .padding(.bottom)
             
-            NavigationLink(destination: CustomComposableView()) {
-                SimpleListItemView(title: "My Composable View",
-                                   caption: "A brief description of my view")
+            List {
+                NavigationLink(destination: CustomComposableView()) {
+                    SimpleListItemView(title: "My Composable View",
+                                       caption: "A brief description of my view")
+                }
             }
             
         }
