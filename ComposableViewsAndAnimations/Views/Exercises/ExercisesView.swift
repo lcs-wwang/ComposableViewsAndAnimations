@@ -33,7 +33,7 @@ struct ExercisesView: View {
                             .padding(.top)
                         
                         Text("""
-                            Use an implicit animation, and change the shape's size, colour, and position when the text is tapped.
+                            Use an implicit animation, and change the shape's size, colour, and position when the circle is tapped.
 
                             Make the state changes occur when the shape is tapped.
                             """)
