@@ -89,7 +89,7 @@ struct ImplicitAnimationsView: View {
 
                             Try out this example. Notice how changes in type face result in the frame – the bounding box of the text view – animating it's change in size. However, the letters of the view don't change in shape from one typeface to the next.
 
-                            It be nice to only animate specific changes in state – that is, only for certain properties – and this is what explicit animations are for.
+                            It would be nice to only animate specific changes in state – that is, only for certain properties – and this is what explicit animations are for.
                             """)
                         
                         Button("Show Example 3") {
