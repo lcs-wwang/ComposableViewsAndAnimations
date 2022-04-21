@@ -77,7 +77,7 @@ struct Trace: Shape {
 let animations: [(String, Animation)] = [
     ("default", .default),
     ("linear(duration: 1)", .linear(duration: 1)),
-    ("interpolatingSpring(stiffnes: 5, damping: 3)", .interpolatingSpring(stiffness: 5, damping: 3)),
+    ("interpolatingSpring(stiffness: 5, damping: 3)", .interpolatingSpring(stiffness: 5, damping: 3)),
     (".easeInOut(duration: 1)", .easeInOut(duration: 1)),
     (".easeIn(duration: 1)", .easeIn(duration: 1)),
     (".easeOut(duration: 1)", .easeOut(duration: 1)),
