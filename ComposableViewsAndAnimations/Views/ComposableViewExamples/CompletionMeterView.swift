@@ -13,7 +13,7 @@ struct CompletionMeterView: View {
     // MARK: Stored properties
     
     // Show completion up to what percentage?
-    var fillToValue: CGFloat
+    let fillToValue: CGFloat
     
     // Controls the amount of trim to show, as a percentage
     @State private var completionAmount: CGFloat = 0.0
@@ -26,7 +26,6 @@ struct CompletionMeterView: View {
     //       initiated state changes by, for example, clicking on the red circle.
     //
     // Update the animation on this interval (every 0.03 seconds)
-    // The full animation will always take 3 seconds
     let timer = Timer.publish(every: 0.03, on: .main, in: .common).autoconnect()
     
     var body: some View {
@@ -45,10 +44,16 @@ struct CompletionMeterView: View {
                 .onReceive(timer) { _ in
                     
                     // Stop when completion amount reaches the fill to value
-                    guard completionAmount < fillToValue / 100.0 else { return }
+                    guard completionAmount < fillToValue / 100.0 else {
+                        
+                        // Stop the timer from continuing to fire
+                        timer.upstream.connect().cancel()
+
+                        return
+                    }
                     
                     // Animate the trim being closed
-                    withAnimation(.linear(duration: 0.03)) {
+                    withAnimation(.default) {
                         completionAmount += fillToValue / 100.0 / 100.0
                     }
                     
