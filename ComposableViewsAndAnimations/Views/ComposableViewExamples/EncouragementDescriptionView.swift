@@ -33,6 +33,7 @@ struct EncouragementDescriptionView: View {
 
                         Type a short phrase, like "Wow!" or "Super!" and try it out.
                         """)
+                    .minimumScaleFactor(0.5)
                     
                     TextField("Enter some encouragement", text: $phrase)
                     
