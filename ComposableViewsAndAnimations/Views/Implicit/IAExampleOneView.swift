@@ -16,12 +16,9 @@ struct IAExampleOneView: View {
     
     // Controls the size of the circle
     @State private var scaleFactor: CGFloat = 1.0
-    
-    // Initialize a timer that will fire in one second
-    let timer = Timer.publish(every: 1, on: .main, in: .common).autoconnect()
-    
+        
     // Whether to apply the animation
-    @State private var useAnimation = false
+    @State private var useAnimation = true
     
     // MARK: Computed properties
     var body: some View {
@@ -42,10 +39,26 @@ struct IAExampleOneView: View {
                             scaleFactor = 1
                         }
                     }
-                // When useAnimation is true, the default animation effect will be used.
-                // When useAnimation is false, there will be no animation.
-//                .animation(useAnimation ? .default : .none)
+                    // This is an implicit animation.
+                    // The change in state (scaleFactor) is animated since the .animation view
+                    // modifier is listed AFTER the view modifier where scaleFactor is changed.
+                    //
+                    // NOTE: A ternary conditional operator is used to control whether the state
+                    // change is animated or not.
+                    // When useAnimation is true, the default animation effect will be used.
+                    // When useAnimation is false, there will be no animation.
+//                    .animation(useAnimation ? .default : .none)
                 
+                Spacer()
+                
+                // To control whether state changes are animated
+                Toggle("Animate state change", isOn: $useAnimation)
+                    .padding()
+                
+                Text("To see the animation, remember to remove the comment on line 50 of **IAExampleOneView.swift** ☺️")
+                    .font(.caption)
+                    .padding()
+
             }
             .navigationTitle("Example 1")
             .toolbar {
@@ -55,16 +68,6 @@ struct IAExampleOneView: View {
                     }
                 }
             }
-            .onReceive(timer) { input in
-                
-                // Set the flag to enable animations
-                useAnimation = true
-                
-                // Stop the timer from continuing to fire
-                timer.upstream.connect().cancel()
-                
-            }
-            
             
         }
         

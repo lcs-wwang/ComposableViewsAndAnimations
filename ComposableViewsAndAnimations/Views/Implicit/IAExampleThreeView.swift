@@ -18,11 +18,8 @@ struct IAExampleThreeView: View {
     // Controls what typeface the text is shown in
     @State private var typeFace: String = "Helvetica-Neue"
 
-    // Initialize a timer that will fire in one second
-    let timer = Timer.publish(every: 1, on: .main, in: .common).autoconnect()
-    
     // Whether to apply the animation
-    @State private var useAnimation = false
+    @State private var useAnimation = true
     
     // MARK: Computed properties
 
@@ -43,15 +40,24 @@ struct IAExampleThreeView: View {
             
             VStack {
                 
+                Spacer()
+                
                 Text(typeFace)
                     .font(.custom(typeFace, size: 30.0))
                     .border(Color.blue, width: 1.0)
                     .onTapGesture {
                         typeFace = IAExampleThreeView.fontNames.randomElement()!
                     }
-                // When useAnimation is true, the default animation effect will be used.
-                // When useAnimation is false, there will be no animation.
+                    // When useAnimation is true, the default animation effect will be used.
+                    // When useAnimation is false, there will be no animation.
                     .animation(useAnimation ? .default : .none)
+                
+                Spacer()
+                
+                // To control whether state changes are animated
+                Toggle("Animate state change", isOn: $useAnimation)
+                    .padding()
+
                 
             }
             .navigationTitle("Example 3")
@@ -61,15 +67,6 @@ struct IAExampleThreeView: View {
                         hideView()
                     }
                 }
-            }
-            .onReceive(timer) { input in
-                
-                // Set the flag to enable animations
-                useAnimation = true
-                
-                // Stop the timer from continuing to fire
-                timer.upstream.connect().cancel()
-                
             }
             
             

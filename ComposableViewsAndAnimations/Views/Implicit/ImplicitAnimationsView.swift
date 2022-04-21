@@ -34,9 +34,11 @@ struct ImplicitAnimationsView: View {
                             .padding(.top)
                         
                         Text("""
-                            Implicit animations are as easy as it gets. We simply tell SwiftUI to animate any changes in state for a given view. And it is done – we don't have to do anything to specify how it happens, or consider what any of the "in-between" animation frames look like.
+                            Implicit animations are as easy as it gets. We just tell SwiftUI to animate any changes in state for a given view. And it is done – we don't have to do anything to specify how it happens, or consider what any of the "in-between" animation frames look like.
 
-                            In this example, a button changes size when it is pressed. Try it out. Then try uncommenting the **.animation** view modifier on line 47 of **IAExampleOneView.swift**.
+                            In this example, a button changes size when it is pressed. Try it out.
+                            
+                            Then, uncomment the **.animation** view modifier on line 50 of **IAExampleOneView.swift** to apply the implicit animation.
                             """)
                         
                         Button("Show Example 1") {
@@ -57,13 +59,17 @@ struct ImplicitAnimationsView: View {
                             .padding(.top)
                         
                         Text("""
-                            The key thing to understand with implicit animations is that all state changes that impact the view are animated.
+                            The key thing to understand with implicit animations is that *all* state changes that impact the view are animated.
 
-                            In this example, the button still changes size when it is pressed. However, when it gets very small, and expands again, the hue changes to a new random value. Try it out. Then try uncommenting the **.animation** view modifier on line 54 of **IAExampleTwoView.swift**. Note how both state changes are animated when the button grows again.
+                            In this example, the button still changes size when it is pressed. However, when it gets very small, and expands again, the hue changes to a new random value. Try it out.
+                            
+                            Then, uncomment the **.animation** view modifier on line 57 of **IAExampleTwoView.swift**. Note how *both* state changes (size and colour) are animated when the button grows in size.
 
                             This example also demonstrates that the length of the animation can be controlled, too. Notice the animation type has been changed from **.default** to **.linear** with a duration of 2.5 seconds.
 
-                            One super cool feature of animations in SwiftUI is that they are interruptable. Try hammering on the circle with your trackpad – you will notice that a new animation to the new state begins, overriding the existing one. In essence, you can speed up the transition to a smaller circle.
+                            One super cool feature of animations in SwiftUI is that they are interruptable. Try hammering on the circle with your trackpad – you will notice that a *new* animation to the new state begins, overriding the animation in progress.
+                            
+                            In essence, by interrupting an in-progress animation of a state change to change the state *again* you can speed up the transition to a smaller circle.
                             """)
                         
                         Button("Show Example 2") {
@@ -87,7 +93,9 @@ struct ImplicitAnimationsView: View {
                         Text("""
                             Some state changes are not animatable. For example, changing the type face, or font, cannot be animated.
 
-                            Try out this example. Notice how changes in type face result in the frame – the bounding box of the text view – animating it's change in size. However, the letters of the view don't change in shape from one typeface to the next.
+                            Try out this example. Tap the text to change the type face.
+                            
+                            Notice how changes in type face result in the frame – the bounding box of the text view – animating it's change in size. However, the letters of the view don't change in shape from one typeface to the next.
 
                             It would be nice to only animate specific changes in state – that is, only for certain properties – and this is what explicit animations are for.
                             """)

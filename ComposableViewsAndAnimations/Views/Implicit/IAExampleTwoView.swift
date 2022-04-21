@@ -20,11 +20,8 @@ struct IAExampleTwoView: View {
     // Controls the hue of the circle
     @State private var hue: Color = .red
     
-    // Initialize a timer that will fire in one second
-    let timer = Timer.publish(every: 1, on: .main, in: .common).autoconnect()
-    
     // Whether to apply the animation
-    @State private var useAnimation = false
+    @State private var useAnimation = true
     
     // MARK: Computed properties
     var body: some View {
@@ -49,9 +46,25 @@ struct IAExampleTwoView: View {
                                         brightness: 0.8)
                         }
                     }
-                // When useAnimation is true, the default animation effect will be used.
-                // When useAnimation is false, there will be no animation.
+                    // This is an implicit animation.
+                    // The changes in state (scaleFactor AND hue) are animated since the .animation view
+                    // modifier is listed AFTER the view modifier where the scaleFactor and hue are changed.
+                    //
+                    // NOTE: A ternary conditional operator is used to control whether the state
+                    // change is animated or not.
+                    // When useAnimation is true, the linear animation effect with a duration of 2.5 seconds will be used.
+                    // When useAnimation is false, there will be no animation.
 //                    .animation(useAnimation ? .linear(duration: 2.5) : .none)
+                
+                Spacer()
+                
+                // To control whether state changes are animated
+                Toggle("Animate state change", isOn: $useAnimation)
+                    .padding()
+
+                Text("To see the animation, remember to remove the comment on line 57 of **IAExampleTwoView.swift** ☺️")
+                    .font(.caption)
+                    .padding()
                 
             }
             .navigationTitle("Example 2")
@@ -61,17 +74,7 @@ struct IAExampleTwoView: View {
                         hideView()
                     }
                 }
-            }
-            .onReceive(timer) { input in
-                
-                // Set the flag to enable animations
-                useAnimation = true
-                
-                // Stop the timer from continuing to fire
-                timer.upstream.connect().cancel()
-                
-            }
-            
+            }            
             
         }
         
