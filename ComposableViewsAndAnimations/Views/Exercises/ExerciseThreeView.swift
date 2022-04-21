@@ -47,7 +47,8 @@ struct ExerciseThreeView: View {
                 //       https://medium.com/better-programming/create-an-awesome-loading-state-using-swiftui-9815ff6abb80
                 //
                 // NOTE: You might be wondering, in what ways can a view be manipulated?
-                //       Scroll down to the "Transforming views" section of this page...
+                //       In other words, what state changes might be fun to animate?
+                //       To see options, scroll down to the "Transforming views" section of the web page given here...
                 //
                 // https://www.hackingwithswift.com/quick-start/swiftui
                 Text(typeFace)
