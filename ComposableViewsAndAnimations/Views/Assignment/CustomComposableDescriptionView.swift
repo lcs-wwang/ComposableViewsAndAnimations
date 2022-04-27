@@ -10,7 +10,8 @@ import SwiftUI
 struct CustomComposableDescriptionView: View {
     
     // MARK: Stored properties
-    @State private var phrase: String = ""
+    @State private var phrase: CGFloat = 0
+    @State private var percentComplete: CGFloat = 50.0
     
     // MARK: Computed properties
     var body: some View {
@@ -25,20 +26,21 @@ struct CustomComposableDescriptionView: View {
                     .padding(.top)
                 
                 Text("""
-                    Replace this with a description of how to use this view.
-
-                    If the view accepts a parameter, provide a control to enter the input below.
+                    This view makes a circle roll. Enter an amount of rotation that should occur.
                     """)
                 
-                TextField("Enter an input value", text: $phrase)
+                Text("Enter rotation degree")
+                Slider(value: $percentComplete, in: 0...100, step: 1.0) {
+                    Text("Completion amount")
+                }
                 
             }
             .padding(.bottom)
-            
-            List {
-                NavigationLink(destination: CustomComposableView()) {
-                    SimpleListItemView(title: "My Composable View",
-                                       caption: "A brief description of my view")
+
+            List{
+                NavigationLink(destination: CustomComposableView( rotationAmount: phrase)){
+                    SimpleListItemView(title: "Completion Meter",
+                                       caption: "Will illustrate fill to \(String(format: "%.0f", percentComplete))%")
                 }
             }
             
