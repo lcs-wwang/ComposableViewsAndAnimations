@@ -17,6 +17,7 @@
 		0E8E8B0525E5442100012516 /* ImplicitAnimationsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E8E8B0425E5442100012516 /* ImplicitAnimationsView.swift */; };
 		0E8E8B0A25E544D700012516 /* SimpleListItemView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E8E8B0925E544D700012516 /* SimpleListItemView.swift */; };
 		4D13F16028182035002F2D1D /* CustomComposableView2.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D13F15F28182034002F2D1D /* CustomComposableView2.swift */; };
+		4D1F6CB8281AEB89000A2BBE /* RotatingArrow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D1F6CB7281AEB89000A2BBE /* RotatingArrow.swift */; };
 		81331FA925E721C800CFDB02 /* CompletionMeterDescriptionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81D2F48B25E71FA400ACF089 /* CompletionMeterDescriptionView.swift */; };
 		81331FAB25E721CB00CFDB02 /* CompletionMeterView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81D2F48A25E71FA400ACF089 /* CompletionMeterView.swift */; };
 		81331FAF25E729D600CFDB02 /* EncouragementDescriptionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81331FAE25E729D600CFDB02 /* EncouragementDescriptionView.swift */; };
@@ -47,6 +48,7 @@
 		0E8E8B0425E5442100012516 /* ImplicitAnimationsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImplicitAnimationsView.swift; sourceTree = "<group>"; };
 		0E8E8B0925E544D700012516 /* SimpleListItemView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SimpleListItemView.swift; sourceTree = "<group>"; };
 		4D13F15F28182034002F2D1D /* CustomComposableView2.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomComposableView2.swift; sourceTree = "<group>"; };
+		4D1F6CB7281AEB89000A2BBE /* RotatingArrow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RotatingArrow.swift; sourceTree = "<group>"; };
 		81331FAE25E729D600CFDB02 /* EncouragementDescriptionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EncouragementDescriptionView.swift; sourceTree = "<group>"; };
 		81331FB125E72A5A00CFDB02 /* EncouragementView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EncouragementView.swift; sourceTree = "<group>"; };
 		81331FB625E736AA00CFDB02 /* CustomComposableDescriptionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomComposableDescriptionView.swift; sourceTree = "<group>"; };
@@ -158,6 +160,7 @@
 				81331FB625E736AA00CFDB02 /* CustomComposableDescriptionView.swift */,
 				81331FBA25E736B600CFDB02 /* CustomComposableView.swift */,
 				4D13F15F28182034002F2D1D /* CustomComposableView2.swift */,
+				4D1F6CB7281AEB89000A2BBE /* RotatingArrow.swift */,
 			);
 			path = Assignment;
 			sourceTree = "<group>";
@@ -298,6 +301,7 @@
 				0E84E4F625E598470052BC69 /* TimingView.swift in Sources */,
 				81D2F47C25E5856E00ACF089 /* ExerciseThreeView.swift in Sources */,
 				0E8E8AF225E5434100012516 /* ComposableViewsAndAnimationsApp.swift in Sources */,
+				4D1F6CB8281AEB89000A2BBE /* RotatingArrow.swift in Sources */,
 				81331FB225E72A5A00CFDB02 /* EncouragementView.swift in Sources */,
 				81D2F45B25E5770300ACF089 /* IAExampleTwoView.swift in Sources */,
 				0E8E8B0A25E544D700012516 /* SimpleListItemView.swift in Sources */,

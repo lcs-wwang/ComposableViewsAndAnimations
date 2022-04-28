@@ -13,7 +13,8 @@ struct CustomComposableView2: View {
     //MARK: computed properties
     var body: some View {
         VStack{
-            Text("n")
+            Image(systemName: "x.circle.fill")
+            
         }
     }
 }
