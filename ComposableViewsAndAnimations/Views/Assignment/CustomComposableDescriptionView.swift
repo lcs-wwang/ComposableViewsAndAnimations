@@ -38,7 +38,7 @@ struct CustomComposableDescriptionView: View {
             .padding(.bottom)
 
             List{
-                NavigationLink(destination: CustomComposableView( rotationAmount: phrase)){
+                NavigationLink(destination: CustomComposableView()){
                     SimpleListItemView(title: "Completion Meter",
                                        caption: "Will illustrate fill to \(String(format: "%.0f", percentComplete))%")
                 }

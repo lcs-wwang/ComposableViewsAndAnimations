@@ -45,7 +45,7 @@ struct ExerciseOneView: View {
                     .onTapGesture {
                         //pick new offset for new position
                         xOffset = CGFloat.random(in: -100...100)
-                        yOffset = CGFloat.random(in: -100...100)
+                        
                         
                         //pick new color
                         let lastColor = currentColors

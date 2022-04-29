@@ -10,10 +10,26 @@ import SwiftUI
 import UIKit
 
 struct CustomComposableView2: View {
+    
     //MARK: computed properties
+    @State var currentColor: Color = .blue
+    @State var selected = false
+    @State private var xOffset: CGFloat = 0.0
     var body: some View {
         VStack{
             Image(systemName: "x.circle.fill")
+                .resizable()
+                .frame(width: 50, height: 50)
+                .foregroundColor(.gray)
+                .animation(.default.repeatCount(5))
+                
+                .onTapGesture {
+                    xOffset = CGFloat.random(in: -30...30)
+                   let originalColor = currentColor
+                    repeat{
+                        currentColor = .red
+                    } while originalColor == currentColor
+                }
             
         }
     }

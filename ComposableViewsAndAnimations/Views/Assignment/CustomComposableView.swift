@@ -10,54 +10,41 @@ import SwiftUI
 import UIKit
 
 struct CustomComposableView: View {
-    //MARK: stored properties
-    
-    @State var xOffset = -100.0
-    
-    // a trigger to start anumation
-    let timer = Timer.publish(every: 2.0, on: .main, in: .common).autoconnect()
-    @State var rotationAmount = 0.0
-    
     //MARK: computed properties
+    @State var currentColor: Color = .blue
+
+    @State var xOffset: CGFloat = 0.0
+    
+    @State private var size: CGFloat = 200.00
     var body: some View {
-        ZStack{
-            Circle()
-                .frame(width: 50, height: 50)
+        VStack{
+            Image(systemName: "x.circle.fill")
+                .resizable()
+                .frame(width: 60, height: 60)
+                .offset(x: xOffset, y: 0)
+                .foregroundColor(currentColor)
             
             
-            
-            Text("OK")
-                .foregroundColor(.white)
-                .offset(x: 2)
-            
-        }
-        .rotationEffect(.degrees(rotationAmount), anchor: .center)
-        .offset(x: xOffset, y: 0)
-        .onReceive(timer) { input in
-            withAnimation(
-                Animation
-                    .easeInOut(duration: 2)
-                    .repeatForever(autoreverses: true)
-            ) {
                 
-                xOffset = 100.0
-                
-                //turn once
-                rotationAmount = 720.0
-            }
+                .onTapGesture {
+                    withAnimation(
+                     Animation
+                        .interpolatingSpring(stiffness: 1000, damping: 0.5)
+                     
+                    ) {
+                        xOffset = 5
+                        size = 100
+                    }
+                    currentColor = .red
+                    
+
+                }
             
-            //move text and circle to the right
-            
-            
-            
-            //turn off it
-            timer.upstream.connect().cancel()
         }
     }
 }
-
 struct CustomComposableView_Previews: PreviewProvider{
     static var previews: some View{
-        CustomComposableView(rotationAmount: 3)
+        CustomComposableView()
     }
 }
