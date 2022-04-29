@@ -11,7 +11,7 @@ import UIKit
 
 struct CustomComposableView: View {
     //MARK: computed properties
-    @State var currentColor: Color = .black
+    @State var currentColor: Color = .blue
     @State var xOffset: CGFloat = 0.0
     @State var scaleFactor = 1.0
     @State var fillImageOpacity = 0.0
@@ -26,20 +26,23 @@ struct CustomComposableView: View {
                 .offset(x: xOffset, y: 0)
                 .scaleEffect(scaleFactor)
                 .foregroundColor(currentColor)
-            
+                .opacity(fillImageOpacity)
                 .onTapGesture {
                     withAnimation(
                         Animation
                             .interpolatingSpring(stiffness: 2000, damping: 6)
                     ) {
                         xOffset = 5
-                        unfillImageOpacity = 1.0
-                        fillImageOpacity = 0.0
+                        
                     }
-                    currentColor = .red
+                    currentColor = currentColor
                     scaleFactor = 2.0
+                    unfillImageOpacity = 1.0
+                    fillImageOpacity = 0.0
                     
                 }
+                
+            
             // unfilled image
             Image(systemName: "x.circle")
                 .resizable()
@@ -48,19 +51,28 @@ struct CustomComposableView: View {
                 .scaleEffect(scaleFactor)
                 .foregroundColor(currentColor)
                 .opacity(unfillImageOpacity)
-            onTapGesture {
-                withAnimation(
-                    Animation
-                        .interpolatingSpring(stiffness: 2000, damping: 6)
-                ) {
-                    xOffset = 5
+                .onTapGesture {
+                    withAnimation(
+                        Animation
+                            .interpolatingSpring(stiffness: 2000, damping: 6)
+                    ) {
+                        xOffset = 5
+                        
+                    }
+                    currentColor = .red
+                    scaleFactor = 2.0
                     unfillImageOpacity = 0.0
                     fillImageOpacity = 1.0
+                    withAnimation(.default.delay(1.0)) {
+                        scaleFactor = 1.0
+                        unfillImageOpacity = 1.0
+                        fillImageOpacity = 0.0
+                        currentColor = .blue
+                        xOffset = 2.0
+                    }
+                   
                 }
-                currentColor = .red
-                scaleFactor = 2.0
                 
-            }
         }
     }
 }
